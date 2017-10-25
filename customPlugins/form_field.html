@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Form Field</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<form id="form" method="get" action="" class="clm l-clm12">
+			<div class="form-field">
+				<label class="form-label" for="firstname">Username</label>
+				<input id="name" name="firstname" type="text" placeholder="Enter Username" required>
+				<i class="fa fa-close hide"></i>
+			</div>
+			<div class="form-field">
+				<label class="form-label" for="lastname">Full Name</label>
+				
+				<input id="lastname" name="lastname" type="text" placeholder="Enter Full Name" required>
+				<i class="fa fa-close hide"></i>
+			</div>
+			<div class="form-field">
+				<label class="form-label" for="email">Email</label>
+				
+				<input id="email" name="email" type="email" placeholder="Email" required>
+				<i class="fa fa-close hide"></i>
+			</div>
+			<div class="form-field">
+				<label class="form-label" for="age">Select your age</label>
+				<select id="age" name="age" placeholder="Enter your age" class="required" required>
+					<option value="" >Choose an option</option>
+					<option value="1">18</option>
+					<option value="2">19</option>
+					<option value="3">20</option>
+				</select>
+			</div>
+			<div class="form-field">
+				<button id="form-button" class="submit hide" type="hidden" value="Submit">Submit</button>
+				<div class="submit button" id="button1">Submit</div>
+				<div class="cancel button" id="button2">Cancel</div>
+			</div>
+		</form>
+	</body>
+</html>
+<script>
+$().ready(function() {
+$.validator.methods.email = function( value, element ) {
+  return this.optional( element ) || /[a-z,0-9]+@[a-z]+\.[a-z]+/.test( value );
+}
+	// validate the comment form when it is submitted
+	$("#form").validate({
+        rules: {
+				firstname: {
+					required: true,
+					minlength: 5
+				},
+				lastname: { required: true, },
+				age:  { required: true },
+				email:{ required: true,  email: true }
+			},
+		messages: {
+			firstname: {
+				required: "Please enter your username",
+				minlength: "Your username must be at least 5 characters long"
+			},
+			lastname: "Please enter your full name",
+			age:  "Please select a age!" ,
+			email:"enter valid email" 
+		}
+    });
+	$("#button1").on("click",function(){
+		$("#form-button").trigger("click");
+		if(!$(".error").is(":visible")){
+			alert("Form Sumbitted");
+		}
+	});
+	$("#button2").on("click", function(){
+		var info = 0;
+		$("input[type=text], select").each(function(){
+			info = $(this).val();
+			if(info){
+				return false;
+			}
+		});
+		if(info){
+			var data = confirm("All entered data will be erased, still you want to proceed?");
+			if(data){
+				$("input[type=text], select").val("");
+			}
+		}else{
+			alert("Enter values");
+		}
+	});
+});
+</script>

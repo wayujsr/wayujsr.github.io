@@ -1,0 +1,62 @@
+.breadcrumbs{
+	background:#e6e6e6;
+	li{
+		font-size: 14px;
+		position:relative;
+		float:left;
+		cursor:pointer;
+		margin-right: 20px;
+		&:before{
+			position:absolute;
+			height:1px;
+			width:0;
+			left:0;
+			right:0;
+			margin: 0 auto;
+			display: block;
+			content: " ";
+			bottom:0;
+			transition: all .3s ease-in;
+			border-bottom: 1px solid;
+		}
+		&:hover{
+			&:before{
+				width:100%;
+			}
+		}
+		&:after{
+			position:absolute;
+			content:"/";
+			display:block;
+			right:-20px;
+			top:0;
+			width: 20px;
+			line-height: inherit;
+			text-align: center;
+		}
+		&:last-child{
+			color: $product_title;
+			cursor:default;
+			&:hover{
+				&:before{
+					width:0;
+				}
+			}
+			&:after{
+				content:"";
+			}
+		}
+	}
+	&.type2{
+		li{
+			&:after{
+				content:"|";
+			}
+			&:last-child{
+				&:after{
+					content:"";
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,94 @@
+.custom-select{
+
+}
+.select-box{
+	width: 100%;
+	position: relative;
+	display: inline-block;
+	.select-click{
+		width: 100%;
+		border:1px solid $ccc_grey;
+		cursor:pointer;
+		@include border-radius(5px);
+		display:inline-block;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		overflow:hidden;
+		min-height:34px;
+		padding:5px;
+		padding-right: 35px;
+		position:relative;
+		&:before{
+			font: normal normal normal 14px/1 FontAwesome;
+			content: "\f107";
+			float:right;
+			border-radius: 50%;
+			background: #00cac2;
+			text-align: center;
+			vertical-align: middle;
+			width: 20px;
+			position:absolute;
+			right:10px;
+			height: 20px;
+			display: inline-block;
+			color: $white;
+			line-height: 20px;
+			margin: 2px 0 0 0;
+		}
+		&.open{
+			&:before{
+				content: "\f106";
+			}
+		}
+	}
+	.select-container{
+		border:1px solid $ccc_grey;
+		position: absolute;
+		min-width: 100px;
+		width:100%;
+		margin-top: -9px;
+		background: $white;
+		padding-bottom:5px;
+		z-index: 1;
+		cursor:pointer;
+		.option-click{
+			padding:0 5px;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+			overflow:hidden;
+			&.selected, &.selected:hover{
+				background:#ffe0af;
+			}
+			&:hover{
+				background:#f1ebff;
+			}
+		}
+	}
+	&.unique{
+		.select-container{
+			border-top-color: $white;
+		}
+		.select-click{
+			padding-right:40px;
+			padding-bottom:1px;
+			white-space:normal;
+			
+			.mul-del{
+				padding: 2px 3px 3px 7px;
+				margin: 0 5px 5px 0;
+				.fa{
+					opacity:1;
+					padding:0 3px 0 6px;
+				}
+				&:hover{
+					padding: 2px 3px 3px 7px;
+					.fa{
+						opacity:1;
+						padding:0 3px 0 6px;
+						transform: rotate(0);
+					}
+				}
+			}
+		}
+	}
+}

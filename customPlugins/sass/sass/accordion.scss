@@ -1,0 +1,40 @@
+.accordion{
+	border:1px solid $ccc_grey;
+	.tab{
+		padding: 5px 10px;
+		border:0;
+		margin:0;
+		background: $product_title;
+		color:$white;
+		.tabClick{
+			cursor:pointer;
+		}
+		.outer{
+			padding: 0;
+			transition: all .5s;
+		}
+		.content{
+			height:0;
+			overflow:hidden;
+			padding:0 5px;
+			transition: all .5s;
+			&:before,&:after{
+				content: " ";
+				margin: 5px;
+				display: block;
+			}
+		}
+		&.selected{
+			.tabClick{
+				border-bottom:1px solid $white;
+			}		
+			.content{
+				
+			}
+			.outer{
+				background: #005b88;
+			}
+		}
+		
+	}
+}

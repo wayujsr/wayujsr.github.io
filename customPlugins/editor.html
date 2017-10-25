@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Custom Editor</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="">Change Formatting</div>
+		<div>
+			<button data-tag="span" class="bold"><i class="fa fa-bold"></i></button>
+			<button data-tag="span" class="italic"><i class="fa fa-italic"></i></button>
+			<!--<select id="font">
+				<option>Choose Font Size</option>
+				<option>12</option>
+				<option>14</option>
+				<option>16</option>
+				<option>18</option>
+				<option>20</option>
+			</select>-->
+			<select id="color">
+				<option>Choose Color</option>
+				<option>red</option>
+				<option>green</option>
+				<option>orange</option>
+				<option>black</option>
+				<option>pink</option>
+			</select>
+		</div>
+		<div class="textarea" style="width:800px;height:200px; border:1px solid #ccc;" contenteditable="true">This is test.</div>
+		<!-- This is test. -->
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	function surroundSelection(option) {
+		if($(window.getSelection().anchorNode.parentElement.className).closest(".textarea")){
+			var _default = {
+				element:"span",
+				bold: "inherit",
+				italic: "inherit",
+				className:"",
+				fontSize: "initial",
+				color: "inherit"
+			}
+			option = $.extend(_default, option);
+			var element = document.createElement(option.element);
+			element.style.fontWeight = option.bold;
+			element.style.fontStyle = option.italic;
+			element.className = option.className;
+			element.style.color = option.color;
+			element.style.fontSize = option.fontSize;
+			console.log(window.getSelection+" window get selection")
+			if (window.getSelection) {
+				var sel = window.getSelection();
+				console.log(sel.rangeCount + " range count");
+				if (sel.rangeCount) {
+					var range = sel.getRangeAt(0).cloneRange();
+					range.surroundContents(element);
+					sel.removeAllRanges();
+					sel.addRange(range);
+				}
+			}
+		}else{
+			return false;
+		}
+	}
+	$(document).on("click", "button.htag", function(){
+		var element = $(this).attr("data-tag");
+		surroundSelection({
+			element: element
+		});
+	})
+	$(document).on("click", "button.bold", function(){
+		surroundSelection({
+			bold: "bold"
+		});
+	})
+	$(document).on("click", "button.italic", function(){
+		surroundSelection({
+			italic: "italic"
+		});
+	})
+	$("select#font").on("change", function(){
+		var fontSize = $(this).val();
+		var className = "one";
+		surroundSelection({
+			element:"span",
+			fontSize: fontSize+'px'
+		});
+	});
+	$("select#color").on("change", function(){
+		var fontSize = 16;
+		var color = $(this).val();
+		var className = "one";
+		surroundSelection({
+			color:color
+		});
+	});
+});
+</script>

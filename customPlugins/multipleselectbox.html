@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Select Box</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/custom-plugins.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="clm l-clm12">
+			<h3>Select your favourite option in selectme</h3>
+			<select id="selectme" class="custom-select">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option value="AZ">Arizona</option>
+				<option selected="selected" value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+			</select>
+		</div>
+		
+		<div class="clm l-clm12">
+			<h3>Select your favourite option in multiple2</h3>
+			<div>for multiple select press CTRL</div>
+			<select multiple id="multiple2" class="custom-select" style="height:170px;">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option selected="selected" value="AZ">Arizona</option>
+				<option selected="selected" value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+			</select>
+		</div>
+		
+		<div class="clm l-clm12">
+			<h3>Select your favourite option in multiple3</h3>
+			<select multiple id="multiple3" class="custom-select" data-unique="one" style="height:170px;">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option selected="selected" value="AZ">Arizona</option>
+				<option selected="selected" value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+			</select>
+		</div>
+		<div id="setvalues" onclick="setValues()" class="submit button">Set Values in multiple 3 selectbox</div>
+		<div id="check" class="submit button">check</div>
+		<h3>Result</h3>
+		<div class="result"></div>
+	</body>
+</html>
+<script>
+
+	$(document).ready(function(){
+		$(".custom-select").mySelectbox();
+		$("#selectme").mySelectbox({width:"400px"});
+	});
+</script>

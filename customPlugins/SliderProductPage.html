@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Slider Product Page</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="slider main_slider" data-size="large">
+			<div>
+				<div class="slide">
+					<img src="./images/margone.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margone1.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margone2.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margone3.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margone4.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margone5.jpg">
+				</div>
+			</div>
+		</div>
+		
+		<div class="slider thumb_slider">
+			<div>
+				<div class="slide">
+					<img src="./images/margoneS.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margoneS1.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margoneS2.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margoneS3.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margoneS4.jpg">
+				</div>
+				<div class="slide">
+					<img src="./images/margoneS5.jpg">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var _slider = document.getElementsByClassName("slider");
+	var custom_slider = function(x){
+		_slider = document.getElementsByClassName("slider");
+		$(_slider).each(function(){
+			var sliderLength = $(this).find(".slide").length;
+			var slideWidth = $(this).find("img").width();
+			if($(window).width() < 640){
+				if($(this).attr("data-size") == 'large'){
+					$(this).find(".slide").width($(window).width());
+				}else{
+					var windowWidth = $(window).width();
+					var naturlWidth = $(this).find("img")[0].naturalWidth;
+					var finalWidth = Math.round($(window).width()/naturlWidth);
+					$(this).find(".slide").width(Math.round(windowWidth/finalWidth));
+				}
+			}else{
+				$(this).find(".slide").width(slideWidth);
+			}
+			var slideHeight = $(this).find("img").height();
+			$(this).height(slideHeight);
+			
+			$(this).children("div").width(slideWidth * sliderLength).css("left","0");
+			//console.log("Slider is " +sliderLength + " width is "+ slideWidth);	
+		});
+	}
+	var x
+	custom_slider(x);
+	$(window).resize(function(){
+		var x
+		custom_slider(x);
+	});
+	for(var i = 0; i < $(_slider).length; i++){
+		//console.log(i);
+		_slider[i].id = "slider"+(i+1);
+	}
+	
+	$(_slider).swipe({
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData, phase) {
+			var slideWidth = $(this).find("img").width();
+			var sliderLength = $(this).find(".slide").length;
+			$(this).children("div").width(slideWidth * sliderLength).css("left","0");
+			var slideVal =  $(this).find("img").width();
+			var sliderFullWid =  parseInt($(this).children("div").width());
+			var leftVal = $(this).children().css("left");
+			leftVal = parseInt(leftVal);
+			var slidePos;
+			//console.log("left val "+leftVal + " slide val " + slideVal+ " slider full width "+ sliderFullWid);
+			if(direction == "left"){
+				if(leftVal<0){
+					slidePos = (leftVal - slideVal);
+					if(-slidePos > (sliderFullWid - slideVal)){
+						slidePos = -(sliderFullWid - slideVal);
+						//console.log("rightest right "+slidePos)
+					}
+				}
+				else{
+					slidePos = - (leftVal + slideVal);
+				}
+				$(this).children().css("left", slidePos);
+			}
+			if(direction == "right"){
+				if(leftVal>=0){
+					slidePos = 0;
+				}
+				else{
+					//console.log("left val "+leftVal + " slide val " + slideVal+ " slider full width "+ sliderFullWid);
+					slidePos = (leftVal + slideVal);
+					console.log("right "+slidePos)
+					if(slidePos>0){
+						slidePos = 0;
+						//console.log("left > forcefully "+slidePos)
+					}
+				}
+				$(this).children().css("left", slidePos);
+				
+			}
+        },
+        triggerOnTouchEnd: true,
+		
+		allowPageScroll: "vertical",
+		threshold: 5,
+        fingers:'all'
+      })
+});
+</script>

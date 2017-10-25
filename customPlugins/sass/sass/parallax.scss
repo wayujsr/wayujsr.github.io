@@ -1,0 +1,20 @@
+.parallax{
+	background-image:url(https://www.homesofa.de/12448-teaser_xl/paolo.jpg);
+	background-attachment:fixed;
+	font-size:2rem;
+	background-repeat:no-repeat;
+	background-position: center;
+	min-height:100%;
+	position:relative;
+	background-size: cover;
+	&.one{
+		background-image:url(https://www.homesofa.de/12439-teaser_xl/paolo.jpg);
+	}
+	&>div{
+		position:absolute;
+		color:#000;
+		top:50%;
+		width:100%;
+		text-align:center;
+	}
+}

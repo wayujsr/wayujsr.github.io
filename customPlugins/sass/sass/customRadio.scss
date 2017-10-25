@@ -1,0 +1,74 @@
+.radio{
+	border:1px solid #ccc;
+	border-radius: 10px;
+	height:21px;
+	margin:0 5px;
+	text-align: center;
+	width:21px;
+	position: relative;
+	transition: all .5s;
+	display:inline-block;
+	overflow:hidden;
+	position:relative;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: all .5s;
+	&:before{
+		transition: all .5s;
+		line-height: 18px;
+	}
+	&:before{
+		content: "\f111";
+		color:#fff;
+	}
+	&:hover:before{
+		color: #ccc;
+		/* animation : radio .5s 1;
+		-webkit-animation : radio .5s 1;
+		-moz-animation : radio .5s 1; */
+	}
+	&.checked{
+		&:before{
+			content: "\f111";
+			color:#666;
+		}
+	}
+}
+.radio-form{
+	> div{
+		line-height:22px;
+		label{
+			display:inline-block;
+			vertical-align: top;
+		}
+	}
+}
+.custom input[type="radio"]{
+	opacity: 0;
+	visibility : hidden;
+	height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+@keyframes radio{
+	0%{font-size: 10px;}
+	50%{font-size: 16px;}
+	80%{font-size: 14px;}
+	100%{font-size: 16px;}
+}
+@-webkit-keyframes radio{
+	0%{font-size: 10px;}
+	50%{font-size: 16px;}
+	80%{font-size: 14px;}
+	100%{font-size: 16px;}
+}
+@-moz-keyframes radio{
+	0%{font-size: 10px;}
+	50%{font-size: 16px;}
+	80%{font-size: 14px;}
+	100%{font-size: 16px;}
+}

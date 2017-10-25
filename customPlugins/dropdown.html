@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Dropdown</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body class="body">
+	<div class="clm">
+		<div class="dropdown" data-position="bottom force-bottom">
+			<div class="dropdown-click"><i class="fa fa-toggle-down"></i> Click Bottom Dropdown</div>
+			<div class="dropdown-drop hide">
+				<div class="list">Click 1</div>
+				<div class="list selected">Click 2</div>
+				<div class="list">Click 3</div>
+				<div class="list">Click 4</div>
+				<div class="list">Click 5</div>
+				<div class='grey'></div>
+				<div class='white'></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="dropdown" data-position="left force-bottom">
+			<div class="dropdown-click"><i class="fa fa-toggle-left"></i> Click Left Dropdown</div>
+			<div class="dropdown-drop hide">
+				<div class="list">Click 1</div>
+				<div class="list">Click 2</div>
+				<div class="list">Click 3</div>
+				<div class="list selected">Click 4</div>
+				<div class="list">Click 5</div>
+				<div class='grey'></div>
+				<div class='white'></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="dropdown" data-position="right force-bottom">
+			<div class="dropdown-click"><i class="fa fa-toggle-right"></i> Click Right Dropdown</div>
+			<div class="dropdown-drop hide">
+				<div class="list">Click 1</div>
+				<div class="list">Click 2</div>
+				<div class="list">Click 3</div>
+				<div class="list">Click 4</div>
+				<div class="list selected">Click 5</div>
+				<div class='grey'></div>
+				<div class='white'></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="dropdown" data-position="top force-bottom">
+			<div class="dropdown-click"><i class="fa fa-toggle-up"></i> Click Top Dropdown</div>
+			<div class="dropdown-drop hide">
+				<div class="list">Click 1</div>
+				<div class="list selected">Click 2</div>
+				<div class="list">Click 3</div>
+				<div class="list">Click 4</div>
+				<div class="list">Click 5</div>
+				<div class='grey'></div>
+				<div class='white'></div>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var dropDown = ".dropdown-click";
+	var dropList = ".dropdown-drop";
+	var dropListClick = ".dropdown-drop .list";
+	$(dropDown).on("click",function(e){
+		$(dropList).hide();
+		var terms = new Object();
+		terms.drpPosition = $(this).parent().attr("data-position");
+		$(this).next(dropList).show().addClass(terms.drpPosition);
+	});
+	$(dropListClick).on("click", function(){
+		$(this).parent().find(".list").removeClass("selected")
+		$(this).addClass("selected");
+	});
+	$(document).click(function(e){
+		if(!$(e.target).closest(".dropdown-click").length){
+			$(dropList).hide();
+		}
+	});
+});
+</script>

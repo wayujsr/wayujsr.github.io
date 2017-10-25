@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Popup</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="row">
+			<div class="clm">
+				<div class="steps">
+					<div class="step done">
+						<div class="hd"><i>1</i> First <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+					<div class="step active">
+						<div class="hd"><i>2</i> Second <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+					<div class="step">
+						<div class="hd"><i>3</i> Third <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+		<div class="row">
+			<div class="clm">
+				<div class="steps fixed-top">
+					<div class="step active">
+						<div class="hd"><i>1</i> First <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+					<div class="step">
+						<div class="hd"><i>2</i> Second <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+					<div class="step">
+						<div class="hd"><i>3</i> Third <span>Step</span></div>
+						<div class="desc">Lorem Ipsum is simply dummy</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var _step = ".step";
+	$(_step).on("click", function(){
+		var cur_index = $(this).index();
+		$(this).parent().find(_step).removeClass("active done");
+		$(this).addClass("active");
+		$(this).parent().find(_step).each(function(){
+			var new_index = $(this).index();
+			if(cur_index > new_index){
+				$(this).addClass("done");
+			}else if(cur_index === new_index){
+				$(this).addClass("active");
+			}
+		});
+	});
+});
+</script>

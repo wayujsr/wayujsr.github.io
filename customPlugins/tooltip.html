@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>ToolTip</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		<span alt="This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip" class="tooltip" location="right">Right</span>
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support The upcoming release of Mobile Firefox (Fennec) 1.1 features improved support 
+		<span alt="This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip" class="tooltip" location="bottom">Bottom</span>. Previous versions of Fennec supported the 
+		<span alt="This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip This is a Tooltip" class="tooltip" location="top">Top</span>, height, and initial-scale viewport properties, <span alt="This is a Tooltip This" class="tooltip" location="left">Left</span> had 
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var toolTip = ".tooltip";
+	$(toolTip).on("mouseenter",function(){
+		var msg = $(this).attr("alt");
+		var location = $(this).attr("location");
+		$(this).append("<div class='tooltip-blk "+ location+"'><div class='grey'></div><div class='white'></div>"+ msg +"</div>")
+		//console.log(winWidth - pos.left);
+		//console.log(winWidth);
+		/*var winWidth = $(window).width();
+		//console.log(pos.left + " " + pos.top + " " + width);
+		var width = $(toolTip).outerWidth(true);
+		var wd = 200 - width;
+		var pos = $(this).position();
+		 if(pos.left<100){
+			$(".tooltip-blk").css('margin-left',-(pos.left +(width/2) -30));
+			$(".tooltip-blk .grey, .tooltip-blk .white").css({
+				"left" : pos.left > 50 ? width/1.2 : width/3,
+				"right" : 'auto'
+			});
+		}else if ((winWidth - pos.left ) < 140){
+			$(".tooltip-blk").css('margin-left',-((width/2)+110));
+			$(".tooltip-blk .grey, .tooltip-blk .white").css({
+				"right" : width/2,
+				"left" : 'auto'
+			});
+		}*/
+	});
+	$(toolTip).on("mouseleave",function(){
+		$(".tooltip-blk").remove();
+	});
+});
+</script>

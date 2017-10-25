@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Switcher</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="clm l-clm12">
+			<form>
+				<div class="switcher square">
+					<input type="checkbox" id="has-mobile" name="mobile"><label for="has-mobile">Has Mobile</label>
+				</div>
+				
+				<div class="switcher">
+					<input type="checkbox" checked id="has-car" name="car"><label for="has-car">Has Car</label>
+				</div>
+				
+				<div class="switcher orange">
+					<input type="checkbox" id="play-sports" name="sports"><label for="play-sports">Play Sports</label>
+				</div>
+			</form>
+		</div>	
+		<div class="clm l-clm12">
+			<button id="check" >check</button>
+				<h3>Result</h3>
+			<div class="result"></div>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".switcher").each(function(){
+		var _this = this;
+		var inputId = $(_this).find("input").attr("id");
+		console.log(inputId);
+		$(_this).append("<div title='Off' class='switch row' data-id='" + inputId + "' id='radio-"+ inputId +"'><span class='line'></span><i class='fa fa-circle'></i></div>");
+		$(_this).find("input[type=checkbox]").each(function(){
+			var inThis = this;
+			var dataId = this.id;
+			var dataName = this.name;
+			var switchWidth = $(_this).find(".switch").outerWidth();
+			var bulletWidth = $(_this).find(".fa").outerWidth();
+			$(_this).find(".switch .line").css("width", switchWidth - 10);
+			if($(inThis).prop("checked")){
+				$(_this).find(".switch").addClass("checked").attr("title","On");
+				$(_this).find(".fa").css("left", switchWidth - bulletWidth - 10);
+			}
+		});
+	});
+	$("input").on("click",function(){
+		var thisID = $(this).attr("id");
+		$("#radio-"+thisID).trigger("click");
+	});
+	$(".switch").on("click", function(){
+		var _this = this;
+		var inputId = $(_this).attr("data-id");
+		var switchWidth = $(_this).outerWidth();
+		var bulletWidth = $(_this).find(".fa").outerWidth();
+		$(_this).find(".line").css("width", switchWidth - 10);
+		if($(_this).hasClass("checked")){
+			$(_this).find(".fa").removeAttr("style");
+			$(_this).removeClass("checked").attr("title","Off");
+			$("#"+inputId).prop("checked", false);
+		}else{
+			$(_this).find(".fa").css("left", switchWidth - bulletWidth - 10);
+			$(_this).addClass("checked").attr("title","On");
+			$("#"+inputId).prop("checked", true);
+		}
+		
+	});
+	$("#check").on("click", function(){
+	var result = [],i =0;
+		$("input[type=checkbox]").each(function(){
+			result[i] = $(this).prop("checked")? "true <br>": "false <br>";
+			i++;
+		});
+		$(".result").html(result);
+	});
+});
+</script>

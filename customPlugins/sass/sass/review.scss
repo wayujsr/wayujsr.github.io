@@ -1,0 +1,60 @@
+.review{
+	margin-bottom: 20px;
+	.profile-icon{
+		float:left;
+		width: 54px;
+		margin-right:10px;
+		background: #bcd3ff;
+		text-align: center;
+		@include border-radius(5px);
+		.fa{
+			font-size: 2.5rem;
+			padding: 7px;
+			color: rgb(82, 142, 120);
+		}
+	}
+	.review-inner-block{
+		font-size:14px;
+		line-height:1.2;
+		overflow:hidden;
+		.user{
+			color:$product_title;
+			cursor:pointer;
+		}
+		.message-detail{
+			font-size:12px;
+			padding-top:5px;
+			.time{
+				color:$product_title;
+			}
+			.helpful{
+				color:$product_title;
+				.fa{
+					color: $ccc_grey;
+					cursor:pointer;
+					&:hover{
+						color:$old_price;
+					}
+					&.selected{
+						color:$product_title;
+					}
+				}
+			}
+		}
+	}
+}
+.write-review{
+	.button{
+		float:right;
+		margin: 23px 0 0 10px;
+	}
+	.textarea{
+		overflow:hidden;
+	}
+	textarea{
+		max-width: 100%;
+		max-height: 67px;
+		width: 100%;
+		height: 67px;
+	}
+}

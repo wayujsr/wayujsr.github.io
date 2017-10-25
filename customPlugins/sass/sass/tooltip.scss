@@ -1,0 +1,110 @@
+.tooltip{
+	text-decoration: underline;	
+	position: relative;
+	color:#048ccc;
+	display:inline-block;
+	cursor: pointer;
+}
+.tooltip-blk{
+	position:absolute;
+	left: 50%;
+	margin-left: -100px;
+	width:200px;
+	@include border-radius(5px);
+	background: $white;
+    text-align: center;
+    top: 28px;
+	color: $primary_color;
+    border: 1px solid $ccc_grey;
+    font-size: 12px;
+    line-height: 18px;
+	z-index:2;
+    padding: 5px 10px;
+	.grey, .white{
+		content: " ";
+		border:10px solid $ccc_grey;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-color: transparent;
+		top: -21px;
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		width: 0;
+	}
+	.white{
+		top:-20px;
+		border-bottom-color:$white;
+	}
+	&.top{
+		bottom: 28px;
+		top: auto;
+		.grey, .white{
+			border:10px solid $ccc_grey;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			border-bottom-color: transparent;
+			top: auto;
+			bottom: -20px;
+		}
+		.white{
+			top: auto;
+			border-top-color: #fff;
+			bottom: -19px;
+		}
+	}
+	&.bottom{
+		top: 28px;
+		.grey, .white{
+			border:10px solid $ccc_grey;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			border-top-color: transparent;
+			top: -21px;
+		}
+		.white{
+			top:-20px;
+			border-bottom-color:$white;
+		}
+	}
+	&.left{
+		top: -5px;
+		right: 100%;
+		float: none;
+		left: auto;
+		margin-right:10px;
+		.grey, .white{
+			border: 10px solid #ccc;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-top-color: transparent;
+			top: 4px;
+			right: -20px;
+			left: auto;
+			margin: 0;
+		}
+		.white{
+			right:-19px;
+			border-left-color:$white;
+		}
+	}
+	&.right{
+		top: -5px;
+		left: 100%;
+		margin-left: 10px;
+		.grey, .white{
+			border: 10px solid #ccc;
+			border-left-color: transparent;
+			border-bottom-color: transparent;
+			border-top-color: transparent;
+			top: 4px;
+			left: -20px;
+			margin: 0;
+		}
+		.white{
+			left:-19px;
+			border-right-color:$white;
+		}
+	}
+}

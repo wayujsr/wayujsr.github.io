@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Custom Checkbox</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+		<style type="text/css">
+			input[type="checkbox"], input[type="radio"]{
+				width: auto;
+				height: auto;
+				visibility: visible;
+				opacity:1;
+			}
+			input[type="checkbox"], input[type="radio"]{
+				text-indent: -9999px;
+				visibility:hidden;
+				opacity: 0;
+			}
+			input[type="checkbox"] + label, input[type="radio"] + label{
+				position:relative;
+				overflow:hidden;
+				margin-left: 30px;
+			}
+			input[type="checkbox"]:checked + label, input[type="radio"]:checked + label{
+				color:#ff0000;
+			}
+			input[type="checkbox"]:not(:checked) + label, input[type="radio"]:not(:checked) + label{
+				color:#999;
+			}
+			input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before{
+			    font: normal normal normal 14px/1 FontAwesome;
+				width:20px;
+				height:20px;
+				position:absolute;
+				left:-30px;
+				line-height: 20px;
+				text-align: center;
+				top: 0;
+				transition: all .5s;
+				content: "\f00c";
+				border:1px solid #ccc;
+			}
+			input[type="checkbox"]:not(:checked) + label:before, input[type="radio"]:not(:checked) + label:before{
+			    font: normal normal normal 14px/1 FontAwesome;
+				width:20px;
+				transition: all .5s;
+				height:20px;
+				position:absolute;
+				left:-30px;
+				top: -30px;
+				line-height: 20px;
+				text-align: center;
+				content: " ";
+				border:1px solid #ccc;
+			}
+			input[type="checkbox"]:checked + label:after, input[type="radio"]:checked + label:after{
+			    font: normal normal normal 14px/1 FontAwesome;
+				width:20px;
+				height:20px;
+				position:absolute;
+				left:-30px;
+				line-height: 20px;
+				text-align: center;
+				top: 0;
+				transition: all .5s;
+				content: "\f00c";
+				border:1px solid #ccc;
+			}
+			input[type="checkbox"]:not(:checked) + label:after, input[type="radio"]:not(:checked) + label:after{
+			    font: normal normal normal 14px/1 FontAwesome;
+				width:20px;
+				transition: all .5s;
+				height:20px;
+				position:absolute;
+				left:-30px;
+				top: 0;
+				line-height: 20px;
+				text-align: center;
+				content: " ";
+				border:1px solid #ccc;
+			}
+			input[type="checkbox"] + label:hover:before, input[type="radio"] + label:hover:before{
+				content: "\f00c";
+				transition: all .5s;
+				color:#999;
+			}
+			input[type="radio"]:checked + label:before{
+				content: "\f111";
+				border-radius: 10px;
+			}
+			input[type="radio"]:not(:checked) + label:before{
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<label>Have Own:</label><br>
+			<input type="checkbox" id="car"><label for="car">Car</label><br>
+			<input type="checkbox" checked id="bike"><label for="bike">Bike</label><br>
+			<input type="checkbox" id="cycle"><label for="cycle">cycle</label><br>
+			
+			<label>Gender</label><br>
+			<input type="radio" name="gender" id="male"><label for="male">Male</label><br>
+			<input type="radio" name="gender" checked id="famale"><label for="famale">Female</label><br>
+		</form>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	
+});
+</script>

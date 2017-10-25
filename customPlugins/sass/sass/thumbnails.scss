@@ -1,0 +1,42 @@
+.thumbnail{
+	img{
+		@include border-radius(3px);
+		padding:5px;
+		width:150px;
+		min-height:auto;
+		border:1px solid $ccc_grey;
+		transition: all .3s ease-in;
+		box-shadow: 0 0 5px $ccc_grey;
+		-webkit-box-shadow: 0 0 5px $ccc_grey;
+		-moz-box-shadow: 0 0 5px $ccc_grey;
+		cursor:pointer;
+		margin: 5px;
+		float:left;
+		&:hover{
+			border-color: $lite_blue;
+			box-shadow: 0 0 5px $lite_blue;
+			-webkit-box-shadow: 0 0 5px $lite_blue;
+			-moz-box-shadow: 0 0 5px $lite_blue;
+		}
+	}
+}
+.thumbnail-lrg{
+	img{
+		width:150px;
+		min-height:auto;
+	}
+}
+.thumbnail-md{
+	img{
+		padding:4px;
+		width:100px;
+		min-height:auto;
+	}
+}
+.thumbnail-sml{
+	img{
+		padding:2px;
+		width:50px;
+		min-height:auto;
+	}
+}

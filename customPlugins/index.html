@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Index Wireframe</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/custom-plugins.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body class="body">
+		<div class="top-most outer-container clear">
+			<section class="wrapper">
+				<nav>
+					<ul>
+						<li class="clm l-clm4">Nur hier, nur jetzt und nur solange der Vorrat reicht </li>
+						<li class="clm l-clm4">Hotline: 0123 456 789 0</li>
+						<li class="clm l-clm4">Starten Sie jetzt ihre Karriere bei Kabs</li>
+					</ul>
+				</nav>
+			</section>
+		</div>
+		<div class="outer-container menu">
+			<section class="wrapper">
+				<header>
+					<div class="action-bar clear">
+						<div class="logo">Logo</div>
+						<div class="profile">
+							<ul>
+								<li>
+									<i class="fa fa-user"></i>
+									<div>Mein Konto</div>
+								</li>
+								<li>
+									<i class="fa fa-heart"></i>
+									<div>Wunschzettel</div>
+								</li>
+								<li>
+									<i class="fa fa-shopping-cart"></i>
+									<div>Warenkorb</div>
+								</li>
+							</ul>
+						</div>
+						<div class="search">
+							<form class="coupon-form">
+								<div class="submit button showNotification btn btn-success" id="button1" message="Coupon Code Applied" type="cus-success">Submit</div>
+								<div class="coupon-textbox">
+									<input type="textbox" id="CouponText" name="CouponText" placeholder="Suchbegriff">
+									<div class="clear"></div>
+									<button id="form-button" class="submit button hide" type="hidden" value="Submit">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</header>
+			</section>
+		</div>
+		<div class="outer-container">
+			<section class="wrapper">
+				<nav class="flex">
+					<div class="menu-bar">
+						<i class="fa fa-bars"></i>
+					</div>
+					<a href="javascript:void(0)" class="selected">Sofas</a>
+					<a href="javascript:void(0)">Sessel</a>
+					<a href="javascript:void(0)">Betten</a>
+					<a href="javascript:void(0)">Matratzen</a>
+					<a href="javascript:void(0)">Kleinmobel</a>
+					<a href="javascript:void(0)">Filialen</a>
+					<a href="javascript:void(0)">Angebote</a>
+					<a href="javascript:void(0)">Service</a>
+					<a href="javascript:void(0)">Inspiration</a>
+				</nav>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	$(document).ready(function(){
+		var aHref = $("nav a");
+		var menuBar = $(".menu-bar .fa");
+		menuBar.on("click",function(){
+			aHref.slideToggle();
+		});	
+		aHref.on("click",function(){
+			mySelection({_this:this, _selector: aHref});
+		});
+	});
+</script>

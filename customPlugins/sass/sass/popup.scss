@@ -1,0 +1,79 @@
+.modal{
+	cursor: pointer;
+    background: linear-gradient(to bottom, #f4f4f4 0%, #bbbbbb 100% );
+	background: -webkit-linear-gradient(top, #f4f4f4 0%, #bbbbbb 100% );
+	background: -moz-linear-gradient(top, #f4f4f4 0%, #bbbbbb 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#bbbbbb',GradientType=0 ); /* IE6-9 */
+    padding: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+	margin: 5px;
+    border: 1px solid $ccc_grey;
+}
+.modal-show{
+	padding: 15px;
+	@include border-radius(15px);
+	font-size:14px;
+	background: $white;
+	box-shadow: 1px 1px 15px $primary_color;
+	z-index:2;
+	left:0;
+	right:0;
+	top:10vh;
+	bottom: 0;
+	position:fixed;
+	margin: 0 auto;
+	&.small{
+		max-width:480px;
+		max-height:320px;
+		height:320px;
+		@media only screen and (max-width:520px){
+			max-width: 90vw;
+			max-height: 94vw;
+			h1{
+				font-size:1.5em;
+				margin:0 0 10px;
+			}
+		}
+	}
+	&.large{
+		max-width:768px;
+		max-height:480px;
+		height:480px;
+		@media only screen and (max-width:810px){
+			max-width: 90vw;
+			max-height: 94vw;
+			h1{
+				font-size:1.5em;
+				margin:0 0 10px;
+			}
+		}
+	}
+	.inner-modal{
+		overflow-y:auto;
+		height:100%;
+	}
+	.modal-close{
+		cursor:pointer;
+		position:absolute;
+		top:-15px;
+		right:-15px;
+		@include border-radius(25px);
+		text-align:center;
+		line-height:30px;
+		background:$white;
+		box-shadow: 0px 0px 6px #666;
+		width: 30px;
+	}
+}
+.overlay{
+	background:rgba(000,000,000,.2);
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom :0;
+	z-index: 1;
+}

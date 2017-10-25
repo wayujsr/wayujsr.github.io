@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Popup</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+	<div>
+		<div class="clm l-clm6">
+		
+		<div class="modal" data-class="modal-1">Small Modal Open</div>
+		<div class="modal-show modal-1 small hide">
+			<div class="fa fa-close modal-close"></div>
+			<div class="inner-modal">
+				<h1>Modal Heading</h1>
+				<div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop</div>
+			</div>
+		</div>
+		</div>
+	<div class="clm l-clm6">
+		<div class="modal" data-class="modal-2">Large Modal Open</div>
+		<div class="modal-show modal-2 large hide">
+			<div class="fa fa-close modal-close"></div>
+			<div class="inner-modal">
+				<h1>Modal Heading</h1>
+				<div>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="clm"><br>press Esc button, click on transparent overlay and click on close icon to hide popup.</div>
+	</div>
+		<div class="overlay hide"></div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var modal = ".modal";
+	var modalShow = ".modal-show";
+	var overlay = ".overlay";
+	var modalClose = ".modal-close";
+	$(modal).on("click",function(){
+		var modalId = $(this).attr("data-class");
+		$(overlay).show();
+		$("."+modalId).show();
+	});
+	$(document).on("keyup", function(e){
+		if(e.keyCode == 27){
+			hideModal(modalShow, overlay);
+		}
+	});
+	$(overlay).on("click",function(){
+		hideModal(modalShow, overlay);
+	});
+	$(overlay).on("click",function(){
+		hideModal(modalShow, overlay);
+	});
+	$(modalClose).on("click",function(){
+		hideModal(modalShow, overlay);
+	});
+});
+</script>

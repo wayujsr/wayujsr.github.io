@@ -1,0 +1,28 @@
+.list-container{
+	&:hover .icon{
+		
+		@include border-radius(40px);
+		font-size: 4rem;
+	}
+	.icon{
+		float:left;
+		font-size: 3rem;
+		margin: 10px;
+		color:#333;
+		width: 72px;
+		text-align: center;
+		background: $ccc_grey;
+		height: 72px;
+		line-height: 72px;
+		background-color: rgb(255, 191, 191);
+		transition: all .3s;
+		&.circle{
+			@include border-radius(40px);
+		}
+	}
+	.detail{
+		overflow:hidden;
+		margin: 7px 0 0;
+		font-size: 14px;
+	}
+}

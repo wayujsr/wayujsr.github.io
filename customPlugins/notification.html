@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Notification</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		
+    <div class="clm l-clm12 btn-stack">
+		<div>Notification will hide in 5 seconds automatically</div>
+        <span>Click on buttons to see the notifications: </span>
+        <button class="showNotification btn btn-success" message="Success Message" type="cus-success">Success Notification</button>
+        <button class="showNotification btn btn-error" message="Alert Message" type="cus-alert">Alert Notification</button>
+        <button class="showNotification btn btn-warning" message="Warning Message" type="cus-warning">Warning Notification</button>
+    </div>
+
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".showNotification").click(function () {
+	    var type = $(this).attr("type");
+        var message = $(this).attr("message");
+        showMe({type: type, message: message});
+    })
+});
+</script>

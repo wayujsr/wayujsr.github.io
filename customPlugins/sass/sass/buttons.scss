@@ -1,0 +1,137 @@
+.button{
+	padding: 10px 15px;
+	cursor:pointer;
+	@include border-radius(5px);
+	display:inline-block;
+	position:relative;
+	margin-right: 10px;
+	box-shadow: inset -1px -1px 3px rgba(000,000,000,.2);
+	overflow:hidden;
+	&:before{
+		content: " ";
+		width:10px;
+		position:absolute;
+		left:50%;
+		top:50%;
+		height:0;
+		background:$ccc_grey;
+		border:0px solid $ccc_grey;
+		@include border-radius(50px);
+	}
+	&.active{
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+	}
+	&:active{
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+	}
+	&:hover:before{
+		-webkit-animation : button_animation .5s 1 ;
+		animation : button_animation .5s 1;
+	}
+	&:focus{
+		outline:0;
+	}
+	&.disabled{
+		&:before{
+			content:none;
+		}
+		&:after{
+			content: " ";
+			width:100%;
+			position:absolute;
+			left:0;
+			top:0;
+			height:100%;
+			background:rgba(255,255,255,.5);
+			cursor:default;
+		}
+	}
+	&.small{
+		padding: 5px 10px;
+		font-size:13px;
+	}
+	&.large{
+		padding: 10px 15px;
+		font-size:20px;
+	}
+}
+.cancel{
+	background:$ccc_grey;
+	border:0;
+}
+.secondary{
+	background: #00bb9a;
+	border:0;
+	color: $white;
+}
+.submit{
+	background:#9fae00;
+	border:0;
+	color: $white;
+}
+.primary{
+	@extend .submit;
+}
+@-webkit-keyframes  button_animation{
+	0%{
+		border-width:0px;
+		width:0%;
+		opacity:0;
+		right:0;
+		left:0;
+	}
+	50%{
+		border-width:50%;
+		width:90%;
+		opacity:.2;
+	}
+	100%{
+		border-width:60px;
+		width:100%;
+		opacity:0;
+		left:-30%;
+		top:-30%;
+	}		
+}
+@-moz-keyframes  button_animation{
+	0%{
+		border-width:0px;
+		width:0%;
+		opacity:0;
+		right:0;
+		left:0;
+	}
+	50%{
+		border-width:50%;
+		width:90%;
+		opacity:.2;
+	}
+	100%{
+		border-width:60px;
+		width:100%;
+		opacity:0;
+		left:-30%;
+		top:-30%;
+	}		
+}
+@keyframes  button_animation{
+	0%{
+		border-width:0px;
+		width:0%;
+		opacity:0;
+		right:0;
+		left:0;
+	}
+	50%{
+		border-width:50%;
+		width:90%;
+		opacity:.2;
+	}
+	100%{
+		border-width:60px;
+		width:100%;
+		opacity:0;
+		left:-30%;
+		top:-30%;
+	}		
+} 

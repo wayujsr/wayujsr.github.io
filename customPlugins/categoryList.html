@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Right Slider</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/custom-plugins.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<aside class="left-aside clm m-clm3 s-clm5 xs-clm6">
+			<h3>Single Open Tab</h3>
+			<ul class="category-menu" data-attr="false">
+				<li>
+					<div class="jq-title selected">Address-book
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title">Free code camp
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title">Eercast
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+		
+		<aside class="left-aside clm m-clm3 s-clm5 xs-clm6 arrow type1 medium">
+			<h3>Multiple Active 1</h3>
+			<ul class="category-menu">
+				<li>
+					<div class="jq-title">Address-book
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title selected">Free code camp
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title">Eercast
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+		<aside class="left-aside clm m-clm3 s-clm5 xs-clm6 type2 large">
+			<h3>Multiple Active 2</h3>
+			<ul class="category-menu" id="one">
+				<li>
+					<div class="jq-title">Address-book
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title">Free code camp
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content hide">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+				<li>
+					<div class="jq-title selected">Eercast
+						<i class="fa fa-minus-square"></i>
+						<i class="fa fa-plus-square"></i>
+					</div>
+					<ul class="content">
+						<li>Sub Category 1</li>
+						<li>Sub Category 2</li>
+						<li>Sub Category 3</li>
+						<li>Sub Category 4</li>
+						<li>Sub Category 5</li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+		
+		<div class="overlay hide"></div>
+		
+		<!-- <input type="text" class="get-value"> 
+		<input type="button" class="submit" value="Print">
+		<div class="result"></div> -->
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".category-menu").categoryMenu();
+	/*var getValue = 3;
+	var printVal = "";
+	$(".submit").on("click",function(){
+		var getValue = $(".get-value").val();
+		console.log(getValue);
+		for(var i = 0; i<getValue; i++){
+			var k = 0;
+			for(var j = 0; j<getValue; j++){
+				if(i>j){
+					printVal += '+';
+				}else{
+					printVal += (k+1);
+					k++;
+				}
+			}
+			printVal += "</br>";
+			$(".result").html(printVal);
+		}
+	});*/
+});
+</script>

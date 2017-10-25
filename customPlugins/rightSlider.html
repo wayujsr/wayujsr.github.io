@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Right Slider</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body class="full-width" style="overflow:hidden;">
+		<div class="main-container clear">
+			<div class="right-menu">
+				<h1><i class="fa fa-bug"> <span></span></i> Click on the right sidebar </h1>
+			</div>
+		</div>
+		<aside class="right-aside">
+			<ul>
+				<li>
+					<i class="fa fa-address-book"></i>
+					<div>address-book</div>
+				</li>
+				<li>
+					<i class="fa fa-envira"></i>
+					<div>envira</div>
+				</li>
+				<li>
+					<i class="fa fa-css3"></i>
+					<div>linode</div>
+				</li>
+				<li>
+					<i class="fa fa-ravelry"></i>
+					<div>ravelry</div>
+				</li>
+				<li>
+					<i class="fa fa-superpowers"></i>
+					<div>super powers</div>
+				</li>
+				<li>
+					<i class="fa fa-free-code-camp"></i>
+					<div>free code camp</div>
+				</li>
+				<li>
+					<i class="fa fa-eercast"></i>
+					<div>eercast</div>
+				</li>
+			</ul>
+		</aside>
+		<div class="overlay hide"></div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".right-aside").on("click",function(){
+		$("body").addClass("open");
+		$(".overlay").show();
+	});
+	$(".overlay").on("click",function(){
+		$("body").removeClass("open");
+		$(".overlay").hide();
+	});
+});
+</script>

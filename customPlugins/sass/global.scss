@@ -1,0 +1,124 @@
+$primary_color:#777;
+$star_color:#ff8300;
+$old_price:#999999;
+$product_title:#0079b5;
+$lite_blue:#64ccff;
+$green:#12b500;
+$ccc_grey: #ccc;
+$white: #fff;
+$font_family:trebuchet ms;
+
+html{
+	min-height:100%;
+	position:relative;
+}
+*{
+	box-sizing: border-box;
+}
+li{
+	list-style:none;
+}
+@mixin border-radius($radius){
+	-webkit-border-radius:$radius;
+	-moz-border-radius:$radius;
+	border-radius:$radius;
+}
+
+@import "sass/form.scss"; 
+@import "sass/product_list.scss";
+@import "sass/navigation.scss";
+@import "sass/listViewPagination.scss";
+@import "sass/iconListing.scss";
+@import "sass/grid.scss";
+@import "sass/tooltip.scss";
+@import "sass/dropdown.scss";
+@import "sass/popup.scss";
+@import "sass/notification.scss";
+@import "sass/rightSlider.scss";
+@import "sass/closeFilter.scss";
+@import "sass/chatBox.scss";
+@import "sass/couponCode.scss";
+@import "sass/customCheckbox.scss";
+@import "sass/customRadio.scss";
+@import "sass/editor.scss";
+@import "sass/sliderProductPage.scss";
+@import "sass/thumbnails.scss";
+@import "sass/breadcrumbs.scss";
+@import "sass/sticky.scss";
+@import "sass/accordion.scss";
+@import "sass/switcher.scss";
+@import "sass/review.scss";
+@import "sass/liListing.scss";
+@import "sass/tabView.scss";
+@import "sass/selectbox.scss";
+@import "sass/loader.scss";
+@import "sass/parallax.scss";
+@import "sass/footer.scss";
+@import "sass/buttons.scss";
+@import "sass/swiperslider.scss";
+@import "sass/rangeslider.scss";
+@import "sass/steps.scss";
+@import "sass/categoryList.scss";
+@import "sass/tableView.scss";
+@import "sass/multipleselectbox.scss";
+@import "sass/index.scss";
+
+
+body, html, p, ul, li {
+	font-family: $font_family;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	color:$primary_color;
+}
+body{
+	max-width:1024px;
+	margin:0 auto;
+	margin-top:20px;
+}
+.full-width{
+	max-width:100%;
+	margin-top:0;
+}
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+.text-center{
+	text-align:center;
+}
+.text-justify{
+	text-align:justify;
+}
+.pos-left{
+	left:0;
+}
+.pos-right{
+	right:0;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.cur-p{
+	cursor:pointer;
+}
+.hide{
+	display:none;
+}
+label.error{
+	color:red;
+	font-size:12px;
+}
+.clear{
+	clear:both;
+	&:before,&:after{
+		display:table;
+		content:" ";
+		clear:both;
+	}
+}

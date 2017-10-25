@@ -1,0 +1,153 @@
+@mixin dropdown-down{
+	@media only screen and (max-width:1024px){
+		top: 28px;
+		left: 5px;
+		right: auto;
+		bottom: auto;
+		margin:0;
+		.grey, .white{
+			border:10px solid $ccc_grey;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			border-top-color: transparent;
+			top: -21px;
+			margin: 0;
+			left:20px;
+			bottom: auto;
+		}
+		.white{
+			top:-20px;
+			border-bottom-color:$white;
+		}
+	}
+}
+.dropdown{
+	display:inline-block;
+	position: relative;
+	margin: 10px 0;
+	.dropdown-click{
+		cursor:pointer;
+	}
+}
+.dropdown-drop{
+	@include border-radius(5px);
+	background:$white;
+	font-size: 14px;
+    box-shadow: 0px 0px 8px #bbb;
+	width:240px;
+	z-index: 1;
+	border: 1px solid $ccc_grey;
+	margin-top:1px;
+	position:absolute;
+	.list{
+		padding:5px 8px;
+		&.selected, &:hover{
+			background:#efefef;
+		}
+	}
+	.grey, .white{
+		content: " ";
+		border:10px solid $ccc_grey;
+		border-right-color: transparent;
+		border-left-color: transparent;
+		border-top-color: transparent;
+		top: -21px;
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		width: 0;
+	}
+	.white{
+		top:-20px;
+		border-bottom-color:$white;
+	}
+	&.top{
+		bottom: 28px;
+		top: auto;
+		.grey, .white{
+			border:10px solid $ccc_grey;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			border-bottom-color: transparent;
+			top: auto;
+			margin: 0;
+			left:20px;
+			bottom: -20px;
+		}
+		.white{
+			top: auto;
+			border-top-color: #fff;
+			bottom: -19px;
+		}
+		&.force-bottom{
+			@include dropdown-down;
+		}
+	}
+	&.bottom{
+		top: 28px;
+		left: 0;
+		right: auto;
+		.grey, .white{
+			border:10px solid $ccc_grey;
+			border-right-color: transparent;
+			border-left-color: transparent;
+			border-top-color: transparent;
+			top: -21px;
+			margin: 0;
+			left:20px;
+		}
+		.white{
+			top:-20px;
+			border-bottom-color:$white;
+		}
+		&.force-bottom{
+			@include dropdown-down;
+		}
+	}
+	&.left{
+		top: -5px;
+		right: 100%;
+		float: none;
+		left: auto;
+		margin-right:10px;
+		.grey, .white{
+			border: 10px solid #ccc;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-top-color: transparent;
+			top: 4px;
+			right: -20px;
+			left: auto;
+			margin: 0;
+		}
+		.white{
+			right:-19px;
+			border-left-color:$white;
+		}
+		&.force-bottom{
+			@include dropdown-down;
+		}
+	}
+	&.right{
+		top: -5px;
+		left: 100%;
+		margin-left: 10px;
+		.grey, .white{
+			border: 10px solid #ccc;
+			border-left-color: transparent;
+			border-bottom-color: transparent;
+			border-top-color: transparent;
+			top: 4px;
+			left: -20px;
+			margin: 0;
+		}
+		.white{
+			left:-19px;
+			border-right-color:$white;
+		}
+		&.force-bottom{
+			@include dropdown-down;
+		}
+	}
+}

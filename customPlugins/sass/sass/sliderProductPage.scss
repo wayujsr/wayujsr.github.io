@@ -1,0 +1,25 @@
+.slider{
+	width:640px;
+	height: 200px;
+	overflow: hidden;
+	position:relative;
+	@media only screen and (max-width:640px){
+		width:100%;
+	}
+	&.thumb_slider{
+		height:94px;
+	}
+	> div{
+		position:absolute;
+		transition : left .5s;
+		left: 0;
+	}
+	.slide{
+		float:left;
+		
+		img{
+			width:100%;
+			height:auto;
+		}
+	}
+}

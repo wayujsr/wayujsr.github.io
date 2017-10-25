@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Close Filter</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+	<h3>Travel Checklist</h3>
+    <div class="clm l-clm12">
+		<ul class="filter-stack">
+			<li>Food<i class="fa fa-close"></i></li>
+			<li>Clothes<i class="fa fa-close"></i></li>
+			<li>Rent<i class="fa fa-close"></i></li>
+			<li>Shoes<i class="fa fa-close"></i></li>
+			<li>Car<i class="fa fa-close"></i></li>
+		</ul>
+    </div>
+
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".filter-stack .fa").on("click",function(){
+		$(this).closest("li").remove();
+		if(!$(".fa").length){
+			$("h3").text("You are ready to travel!!");
+		}
+	});
+});
+</script>

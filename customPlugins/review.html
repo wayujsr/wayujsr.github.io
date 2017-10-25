@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Review</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="clm l-clm8 m-clm8">
+			<div class="review-block">
+				<div class="review row" id="review-1">
+					<div class="profile-icon"><i class="fa fa-user"></i></div>
+					<div class="review-inner-block">
+						<div class="user">John Doe</div>
+						<div class="message">
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
+						</div>
+						<div class="message-detail">
+							<div class="time right">12/6/2016, 3:33:40 PM</div>
+							<div class="helpful left">helpful <i class="fa fa-thumbs-up selected" title="useful"></i> <i class="fa fa-thumbs-down" title="not useful"></i></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="write-review">
+				<div class="button submit" id="write-review">Submit</div>
+				<div class="textarea">
+					<textarea placeholder="Write review here" id="review-text"></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(document).on("click", ".helpful .fa",  function(){
+		if(!$(this).hasClass("selected")){
+			$(this).parent().find(".fa").removeClass("selected");
+			$(this).addClass("selected");
+		}
+	});
+	$("#write-review").on("click", function(){
+		var text = $("#review-text").val();
+		if(text){
+			var id="one", review = "<div class='review row' id='"+ id +"'> <div class='profile-icon'><i class='fa fa-user'></i></div><div class='review-inner-block'><div class='user'>John Doe</div><div class='message'>"+ text +" </div> <div class='message-detail'><div class='time right'>"+ new Date().toLocaleString() +"</div><div class='helpful left'>helpful <i class='fa fa-thumbs-up' title='useful'></i> <i class='fa fa-thumbs-down' title='not useful'></i></div></div></div></div>"
+			$(".review-block").append(review);
+			$("#review-text").val("");
+		}else{
+			alert("Write a review first");
+		}
+		
+	});
+});
+</script>

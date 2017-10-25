@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>ChatBox</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="chatbox-outr">
+			<div class="chatbox-bar">
+				<i class="fa fa-weixin left"></i>
+				<i class="fa fa-toggle-up right"></i>
+				<div class="hd">
+					<div class="large">Live Chat</div>
+					<div class="small">Click to open Chat</div>
+				</div>
+			</div>
+			<div class="chatbox-modal">
+				<div class="history">
+					
+				</div>
+				<form action="post" class="action">
+					<input type="hidden">
+					<div class="submit button" id="send-message"><i class="fa fa-chevron-circle-right"></i></div>
+					<div class="textarea">
+						<textarea id="txtMessage" placeholder="Enter your query here."></textarea>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var sendMessage = "#send-message";
+	var chatOpener = ".chatbox-bar";
+	var historyScroll = '.history';
+	var counter = 0;
+	var replyMessages = ['Hello Sir, How may I help you.', 'Sorry for Inconvenience.', 'We assist you the best', 'Sorry for Inconvenience.'];
+	$(chatOpener).on("click", function(){
+		$(this).closest(".chatbox-outr").toggleClass("open");
+	});
+	$(sendMessage).on("click",function(){
+		counter = counter > 3 ? counter = 0: counter; 
+		var txtMsg = $("#txtMessage").val();
+		$(historyScroll).append("<div class='user left'>"+ txtMsg +"<div class='grey'></div><div class='white'></div></div><span class='right'>User "+ new Date().toLocaleString() +"</span>");
+		$(historyScroll).append("<div class='customercare right'>"+ replyMessages[counter] +"<div class='grey'></div><div class='white'></div></div><span class='left'>Customer Care "
+		+ new Date().toLocaleString() + "</span>");
+		counter++;
+		$("#txtMessage").val("");
+		$(historyScroll).scrollTop($(historyScroll)[0].scrollHeight);
+	});
+});
+</script>

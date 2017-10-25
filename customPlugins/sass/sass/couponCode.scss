@@ -1,0 +1,27 @@
+.coupon-form{
+	margin-top:20px;
+	.coupon-textbox{
+		display: block;
+		overflow: hidden;
+		input{
+			border-top-left-radius:5px;
+			border-bottom-left-radius:5px;
+			line-height: 42px;
+			width:100%;
+			padding: 0 0 0 8px;
+			border: 1px solid $ccc_grey;
+			&:focus,&:active{
+				outline:0;
+			}
+		}
+		label{
+			display:block;
+			clear:both;
+		}
+	}
+	.button{
+		border-top-left-radius:0;
+		border-bottom-left-radius:0;
+		float:right;
+	}
+}

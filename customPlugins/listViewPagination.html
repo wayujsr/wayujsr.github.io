@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>List View Pagination</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="list-view">
+			<div class="list-row list-hd">
+				<div>Product Name</div>
+				<div>Quantity</div>
+				<div>Price</div>
+			</div>
+			<div class="list-row">
+				<div>Product Name</div>
+				<div>1</div>
+				<div>149,00 €</div>
+			</div>
+			<div class="list-row">
+				<div>Product Name</div>
+				<div>2</div>
+				<div>429,00 €</div>
+			</div>
+			<div class="list-row">
+				<div>Product Name</div>
+				<div>3</div>
+				<div>249,00 €</div>
+			</div>
+			<div class="list-row">
+				<div>Product Name</div>
+				<div>1</div>
+				<div>389,00 €</div>
+			</div>
+			<div class="list-row">
+				<div>Product Name</div>
+				<div>1</div>
+				<div>169,00 €</div>
+			</div>
+		</div>
+		<div class="list-pagination">
+			<ul class="right">
+				<li class="jq-first-page" title="first"><<</li>
+				<li class="jq-arrow-left" title="left"><</li>
+				<li class="jq-pagination">1</li>
+				<li class="jq-pagination">2</li>
+				<li class="selected jq-pagination">3</li>
+				<li class="jq-pagination">4</li>
+				<li class="jq-pagination">5</li>
+				<li class="jq-pagination">6</li>
+				<li class="jq-arrow-right" title="right">></li>
+				<li class="jq-last-page" title="last">>></li>
+			</ul>
+			<span class="page-info">
+				Showing <span class="jq-current-page">3</span> out of 6
+			</span>
+		</div>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	var jqPagination = $(".jq-pagination");
+	var jqArrowLeft = $(".jq-arrow-left");
+	var jqArrowRight = $(".jq-arrow-right");
+	var jqFirstPage = $(".jq-first-page");
+	var jqLastPage = $(".jq-last-page");
+	
+	jqPagination.on("click",function(){
+		mySelection({_this:this, _selector:jqPagination});
+		var value = $(this).text();
+		$(".jq-current-page").text(value);
+	});
+	
+	jqArrowRight.on("click",function(){
+		if(jqPagination.length != $(".jq-current-page").text()){
+			pageArrow($(this), jqPagination)
+		}
+	});
+	
+	jqArrowLeft.on("click",function(){
+		if(1 != $(".jq-current-page").text()){
+			pageArrow($(this), jqPagination)
+		}
+	});
+	
+	$(".jq-first-page, .jq-last-page").on("click", function(){
+		var i = 0;
+		if($(this)[0].title == 'first'){
+			i = 1;
+		}else{
+			i = jqPagination.length;
+		}
+		$(".jq-current-page").text(i);
+		jqPagination.removeClass("selected");
+		jqPagination[i-1].className = "selected";
+	});
+});
+
+</script>

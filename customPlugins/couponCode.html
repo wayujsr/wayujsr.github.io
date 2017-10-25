@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Notification</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+	
+    <form class="clm l-clm4 m-clm6 xs-clm12 coupon-form">
+		<h3>Coupon Code is : RTBSUSI</h3>
+		<div class="submit button showNotification btn btn-success" id="button1" message="Coupon Code Applied" type="cus-success">Submit</div>
+		<div class="coupon-textbox">
+			<input type="textbox" id="CouponText" name="CouponText" placeholder="Enter Coupon Code here">
+			<div class="clear"></div>
+			<button id="form-button" class="submit button hide" type="hidden" value="Submit">Submit</button>
+		</div>
+    </form>
+	</body>
+</html>
+<script>
+$(document).ready(function(){
+	$(".coupon-form").validate({
+        rules: {
+				CouponText: {
+					required: true,
+					minlength: 7
+				}
+			},
+		messages: {
+			CouponText: {
+				required: "Please enter Coupon Code",
+				minlength: "Coupon Code must be at least 7 characters long"
+			}
+		}
+    });
+	$("#button1").on("click",function(e){
+		$("#form-button").trigger("click");
+		if(!$(".error").is(":visible")){
+			//alert("Form Sumbitted");
+			if($("#CouponText").val().toLowerCase() === 'rtbsusi'){
+				var type = $(this).attr("type");
+				var message = $(this).attr("message");
+			}else{
+				var type = "cus-alert";
+				var message = "Coupon Code is not valid!";
+			}
+			showMe({type: type, message: message});
+		}
+	});
+	$(".coupon-form").submit(function(e){
+        e.preventDefault();
+    });
+});
+</script>

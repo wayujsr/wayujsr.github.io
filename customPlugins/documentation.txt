@@ -1,0 +1,732 @@
+=Frontend Toolset=
+
+%branch: UI_Toolset%
+
+%location : rtb\core\shop-frontoffice\UI%
+
+==fontAwesome:==
+
+Using fontAwesome css for vector based icons.
+
+
+==global.scss==
+common classes used for basic classes
+
+.text-left :use this class for aligning text to left
+
+.text-right : use this class for aligning text to right
+
+.text-center : use this class for aligning text to center
+
+.text-justify : use this class for aligning text to justify
+
+.pos-left : use this class for positioning element to left
+
+.pos-right : use this class for positioning element to right
+
+.left : use this class for float element to left
+
+.right : use this class for float element to right
+
+.cur-p : use this class for pointer to cursor
+
+.hide : use this class for hide the element
+
+.clear : use this class for clear above element's
+
+.overlay : use this class for rgba background
+
+
+
+==grid.scss==
+%.row% : for outer block level
+
+Structure:
+
+%<div class="row">....</div>%
+
+
+%.clm% : for full width column
+
+for width < 480px use xs-clm1, xs-clm2................. xs-clm12
+
+for width < 768px use s-clm1, s-clm2, .................. s-clm12
+
+for width < 1024px use m-clm1, m-clm2,.................. m-clm12
+
+for width > 1024px use l-clm1, l-clm2,.................. l-clm12
+
+Structure:
+
+%<div class="clm l-clm2">....</div>%
+
+
+==Icon Listing==
+Source file : iconListing.html
+
+Structure:
+
+[%<div class="list-container clm l-clm3 m-clm6 s-clm12">	
+    <div class="icon">
+        <i class="fa fa-meetup"></i>
+    </div>
+    <div class="detail">
+        ......
+    </div>
+</div>%]
+
+Options:
+By default icon image is square if wants to changes it to circle then use %.circle% class on %.icon% class.
+
+
+==Add tooltip on element==
+Source file : tooltip.html
+
+Structure:
+
+[%<span class="tooltip" location="right" alt="Content goes here Content goes here Content goes here Content goes here Content goes here">Right</span>%]
+
+Add Class : tooltip
+for content add alt attr : %alt="content"%
+
+for position add attr : %location="left"% , examples (right, left, top, bottom)
+
+
+==Close Filter block==
+Source File : closeFilter.html
+
+Functionality : on click of fa-close label will closed, javascript is written in the source file.
+
+Structure : 
+[%<ul class="filter-stack">
+	<li>Food <i class="fa fa-close"></i></li>
+	<li>Car <i class="fa fa-close"></i></li>
+</ul>%]
+
+%small% : add this class on %filter-stack% for small filters
+
+
+==Coupon Code Module==
+Source File : couponCode.html
+
+Example of using common notification.
+function used from global.js for notification functionality
+function name : %showMe()%
+
+
+
+==Modal View & popup window==
+Source file : popup.html
+
+Structure :
+
+[%<div class="modal" data-class="modal-1">Click</div>
+<div class="modal-show modal-1 small hide">
+	<div class="fa fa-close modal-close"></div>
+	<div class="inner-modal">
+		<div>Content</div>
+	</div>
+</div>%]
+
+Description:-
+Enable click event : %class="modal"% %data-class="modal-1"%
+
+modal view : %class="modal-show modal-1 small hide"%
+
+data-class attribute values and modal view class must have the same value in it to work.
+there is 2 variant of modal window, one is small and another is large (small, large)
+
+
+==Notification==
+
+"showNotification" : add this class to click event element
+
+"message='content goes here'" : add this %attr% to above element with notification message
+
+"type='type of notification'" : add this %attr% for which type of notification you want to show.
+
+
+Notification popup will generate at runtine and append in body tag.
+
+
+==DropDown==
+
+Source file : dropdown.html
+
+Structure:
+
+[%<div class="dropdown" data-position="left force-bottom">
+    <div class="dropdown-click">
+        <i class="fa fa-toggle-left"></i> Click Left Dropdown
+    </div>
+    <div class="dropdown-drop hide">
+	Content goes here
+	<div class='grey'></div>
+	<div class='white'></div>
+    </div>
+</div>%]
+
+Main Class : dropdown
+
+Position Class : left (eg. top, bottom, left, right), 
+
+force-bottom class will show bottom drop down because of small devices, its works with media query
+
+Arrow Class : %.grey% and %.white% is for pointing arrows
+
+
+==Custom Checkbox==
+
+Source file : custormCheckbox.html
+
+Code:
+<div class="custom-checkbox custom">
+	<div>
+		<input class="" type="checkbox" checked="checked" disabled="disabled"  name="kid" id="13">
+	</div>
+</div>
+
+%.custom% : add class on parent div for custom checkbox
+
+%checked="checked"% : for by default checked property on custom checkbox
+
+%disabled="disabled""% : for by default disabled property on custom checkbox
+
+%checked="checked" disabled="disabled"% :add both properties on %checkbox[input]% for checked & disabled state on custom checkbox
+
+JS :
+[%
+$("input[type=checkbox]").myCheckbox();
+%]
+
+
+
+
+==Custom Radio==
+Structure : customRadio.html
+
+Code:
+
+[%<input type="radio" name="vehicle" id="bike"><label for="bike">Bike</label>%]
+
+
+
+==Thumbnail==
+Structure : thumbnails.html
+
+thumbnail size variation : 
+% thumbnail-lrg,  thumbnail-md,  thumbnail-sml %
+
+Code:
+
+[%
+<div class="thumbnail thumbnail-lrg">
+	<img src="http://foundation.zurb.com/sites/docs/assets/img/thumbnail/01.jpg">
+	<img src="http://foundation.zurb.com/sites/docs/assets/img/thumbnail/02.jpg">
+	<img src="http://foundation.zurb.com/sites/docs/assets/img/thumbnail/03.jpg">
+</div>
+%]
+
+==Sticky==
+Structure : sticky.html
+
+Sticky only with relative container, sticky will visible and stick on screen while container is in viewport.
+Sticky will only work on higher end screens (>1600), due to main website container (basic resolution for web aplication 1024px), 250px width for sticky element each side.
+
+Code:
+
+[%
+<div class="clm l-clm12 ">
+	<h3>Large Thumbnails</h3>
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	<div class="sticky">
+		<img src="http://semantic-ui.com/images/wireframe/paragraph.png">
+	</div>
+</div>
+%]
+
+
+==Switcher/Toggle==
+Structure : switcher.html
+
+By Default : blue color is selected and circle in shape.
+
+Variations class : %square% for square rounded edges , %orange% for selected switcher color.
+
+Code:
+
+[%
+<div class="switcher square">
+	<input type="checkbox" id="has-mobile" name="mobile"><label for="has-mobile">Has Mobile</label>
+</div>
+%]
+
+==Review==
+Structure : review.html
+
+Code:
+[%
+<div class="review-block clm">
+	<div class="review row" id="review-1">
+		<div class="profile-icon"><i class="fa fa-user"></i></div>
+		<div class="review-inner-block">
+			<div class="user">John Doe</div>
+			<div class="message">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
+			</div>
+			<div class="message-detail">
+				<div class="time right">12/6/2016</div>
+				<div class="helpful left">helpful 
+					<i class="fa fa-thumbs-up selected" title="useful"></i> 
+					<i class="fa fa-thumbs-down" title="not useful"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<div class="clm write-review">
+	<div class="button submit" id="write-review">Submit</div>
+	<div class="textarea">
+		<textarea placeholder="Write review here" id="review-text">
+	</div>
+</div>
+%]
+
+== Tabs ==
+Structure : tabView.html
+
+Main class : %tab%
+
+Variant class : %type1 %
+
+Round edges class : %round %, this will work with % type1% class
+
+Top tab class: %top-tab%
+
+Code:
+[%
+<div class="tab row type1 round top-tab">
+	<ul class="tab-click clm m-clm3">
+		<li class="selected">Tab 1</li>
+		<li>Tab 2</li>
+		<li>Tab 3</li>
+	</ul>
+	<ul class="tab-content clm m-clm9">
+		<li class="selected">Content 1</li>
+		<li>Content 2</li>
+		<li>Content 3</li>
+	</ul>
+</div>
+%]
+
+
+== Li Listing ==
+Structure : liListing.html
+
+Listing size variations in class : %small, medium, large%
+
+inline listing class : %inline%
+
+round edges listing class : %round%
+
+Code:
+[%
+<ul class="listing-icons medium round">
+	<li><i class="fa fa-drupal"></i><span>Drupal</span></li>
+</ul>
+%]
+
+
+== Steps UI ==
+Structure : steps.html
+
+when screen resolution is below 1024px steps automatically convert in to Step Aside Bar.
+
+Top fixed : add %fixed-top% class on %steps% class it will keep step bar horizontally
+
+Code:
+[%
+<div class="steps">
+	<div class="step done">
+		<div class="hd"><i>1</i> First <span>Step</span></div>
+		<div class="desc">Lorem Ipsum is simply dummy</div>
+	</div>
+	<div class="step active">
+		<div class="hd"><i>2</i> Second <span>Step</span></div>
+		<div class="desc">Lorem Ipsum is simply dummy</div>
+	</div>
+	<div class="step">
+		<div class="hd"><i>3</i> Third <span>Step</span></div>
+		<div class="desc">Lorem Ipsum is simply dummy</div>
+	</div>
+</div>
+%]
+
+
+
+== Custom Selectbox ==
+Structure : selectbox.html
+Class : %custom-select% this is the mendatory class for custom selectbox
+
+===jquery plugin===
+call selectbox() function for creating custom selectbox
+[%
+$(".custom-select").selectbox();
+%]
+
+Code: for single selected options
+[%
+<select id="selectme" class="custom-select">
+	<option value="1">1</option>
+	<option value="2">2</option>
+</select>
+%]
+
+Code: for multiple selected options with ctrl pressed
+[%
+<select multiple id="selectme" class="custom-select">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option selected="selected" value="3">3</option>
+</select>
+%]
+
+Code: for multiple selected options without ctrl pressed
+
+need to add %data-unique% attribute on select tag, see e.g. below
+[%
+<select multiple id="selectme" class="custom-select" data-unique="one">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option selected="selected" value="3">3</option>
+</select>
+%]
+
+===set values by using function===
+
+this function pass 2 values, %setSelected% value for new selections
+
+array value is the value of option box to check 
+[%
+$("#multiple3").myGetSetSelectbox("setSelected",['AK','CO'])
+%]
+
+== Loader ==
+Structure : loader.html
+
+%loader% : this is the main class for Loader
+
+%large% : this is the larger variant of loading 
+
+%inverse% : for inverse the color
+
+Code:
+[%
+<div class="cus-outer clm">
+	<div class="loader large inverse">
+		<div class="inner">
+			<div class="spinner">
+			</div>
+			<span>Loading</span>
+		</div>
+	</div>
+</div>
+%]
+
+
+== Swiper Slider ==
+Structure : swiperslider.html
+
+===Parallax ===
+for parallax view add below attributes in element
+
+[%
+data-swiper-parallax="-200"
+%]
+
+===Zoom ===
+Zoom Functionality in Touch devices
+
+[%
+<div class="swiper-slide">
+	<div class="swiper-zoom-container">
+		<img src="https://farm4.staticflickr.com/3685/8953389435_e5caf8d988_c.jpg">
+	</div>
+</div>
+JS
+zoom: true,
+zoomToggle: true,
+zoomMax: 3,
+zoomMin:1
+%]
+
+
+===Lazy Loading===
+
+[%
+<div class="swiper-slide">
+	<img data-src="path/to/picture-1.jpg" class="swiper-lazy">
+	<div class="swiper-lazy-preloader"></div>
+</div>
+JS
+// Disable preloading of all images
+   preloadImages: false,
+// Enable lazy loading
+   lazyLoading: true
+%]
+
+===Responsive===
+responsive breakpoints in case of multiple columns
+[%
+breakpoints:{
+	740:{
+		spaceBetween: 10
+	}
+}
+%]
+
+===Slides in one viewport ===
+[%
+slidesPerView: 2
+%]
+
+
+===Custom scrollbar===
+
+CSS
+[% swiper-slide %] make sure this element height  need to be auto for scroll
+
+[%<div class="swiper-scrollbar"> </div> %] add this tags for scrollbar as in place of pagination element
+
+JS
+
+[% 
+scrollbar: '.swiper-scrollbar',
+direction: 'vertical',
+slidesPerView: 'auto',
+mousewheelControl: true,
+freeMode: true
+%]
+
+
+Code:
+[%
+<div class="swiper-container coloum-slider">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">Slide 1</div>
+		<div class="swiper-slide">Slide 2</div>
+	</div>
+	<!-- Add Pagination -->
+	<div class="swiper-pagination"></div>
+</div>
+JS
+var swiper = new Swiper('.coloum-slider');
+%]
+
+
+== Range Slider ==
+Structure : rangeSlider.html
+
+Required files to run range slider
+[%<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+%]
+
+
+Add this js file to smoothly work on touch devices
+[%
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+%]
+
+===Single value range slider===
+One value range slider, set %range% parameter to "min" / "max" in javascript
+
+===code:===
+[%
+range: "min"
+%]
+
+=== two values range slider===
+two values range slider, set %range% parameter to "range", 
+
+set min and max values in %values% parameter in javascript
+
+Code:
+[%
+range: "range",
+values: [ 75, 300 ],
+%]
+
+Code:
+[%
+<div id="slider"></div>
+JS
+ 
+$( "#slider" ).slider({
+	range: "min",
+	min:0,
+	value:1,
+	max:10
+});
+
+%]
+
+== Table Structure ==
+
+Structure : tableView.html
+
+%table% : this is the main class for category menu working
+
+%bg-red% : border & background red user Interface
+
+%bg-green% : border & background green user Interface
+
+%width-auto% : add class for %<td>% width auto 
+
+%bg-blue% : border & background blue user Interface
+
+%no-bg% : add class on %tr% for no background
+ 
+%small% : for small size table
+
+%medium% : for medium size table
+
+%large% : for large size table
+
+By default its in small size.
+
+
+=== Parent Checkbox / Child Checkboxes ===
+Code : 
+
+[%
+Parent checkbox 
+<th width="40" class="custom-checkbox custom"><div><input class="" type="checkbox" name="all" id="false"></div></th>
+
+Child checkbox
+<td class="custom-checkbox custom"><div><input class="" type="checkbox" name="false" id="41"></div></td>
+%]
+
+%name="all"% : main selector element with fixed values for triggering all parent checkbox.
+
+parent checkbox id %id="false"% and child checkbox name attribute property %name="false"%  need to be same for working properly
+
+
+Code:
+[%
+<table border="0" class="table small custom-border" cellspacing="0" cellpadding="0">
+	<tr>
+		<th width="40" class="custom-checkbox custom"><div><input class="" type="checkbox" name="all" id="false"></div></th>
+		<th>Heading 1</th>
+		
+	</tr>
+	<tr>
+		<td class="custom-checkbox custom"><div><input class="" type="checkbox" name="false" id="41"></div></td>
+		<td>List 1</td>
+		
+	</tr>
+	<tr class="bg-blue">
+		<td class="custom-checkbox custom"><div><input class="" type="checkbox" name="false" id="42"></div></td>
+		<td>List 1</td>
+	</tr>
+	<tr>
+		<td class="custom-checkbox custom"><div><input class="" type="checkbox" name="false" id="43"></div></td>
+		<td>List 1</td>
+	</tr>
+</table>
+%]
+
+== Category menu ==
+Structure : categoryList.html
+
+%category-menu% : this is the main class for category menu working
+
+%data-attr% : add this attr for view single active tab, by default its multi active tabs
+
+%type1% : border blue user Interface
+
+%type2% : border orange user Interface
+ 
+%arrow% : custumized arrows
+
+%medium% : for medium size menu
+
+%large% : for large size menu
+
+By default its in small size.
+
+Code:
+[%
+<ul class="category-menu" data-attr="false">
+	<li>
+		<div class="jq-title">Address-book
+			<i class="fa fa-minus-square"></i>
+			<i class="fa fa-plus-square"></i>
+		</div>
+		<ul class="content">
+			<li>Sub Category 1</li>
+		</ul>
+	</li>
+</ul>
+%]
+
+
+
+== Button ==
+Structure : buttons.html
+
+===Default classes===
+
+%button% : this is the main class for Loader
+
+===Buttons Type===
+
+%primary% : this is the larger variant of loading 
+
+%secondary% : for inverse the color
+
+%cancel% : for inverse the color
+
+
+===Size Variant===
+%small% : for inverse the color
+
+%large% : for inverse the color
+
+by default its normal size
+
+===Disabled State===
+%disabled% : for inverse the color
+
+Active State
+%active% : for inverse the color
+
+
+Code:
+[%
+<div class="button primary">Primary</div>
+%]
+
+==common.js==
+
+%mySelection({_this:this, _selector:selector, _allOpen: false/true})%
+
+this function call with a object
+
+use this function for show current selection and remove selection for other similar elements
+
+%_this% represent show the current item which is clicked.
+%_selector% will hide/remove selection from prior selection.
+%_allOpen %: true for all selected states which got clicked, false for only 1 selected state
+
+functions used in 
+
+listViewPagination.html
+
+navigation.html

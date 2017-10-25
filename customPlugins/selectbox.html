@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Select Box</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/common.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/global.css">
+	</head>
+	<body>
+		<div class="clm l-clm12">
+			<h3>Select your favourite option</h3>
+			<select id="selectme" class="custom-select">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="Hello World!!">Hello World!!</option>
+				<option selected value="Hello World!! this is so go0000000od">Hello World!! this is so g000000ood</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+			
+			<h3>Select your favourite option</h3>
+			<select id="selectfor" class="custom-select">
+				<option value="1">1</option>
+				<option value="Hello World!!!!!">Hello World!!!!!</option>
+				<option value="3">3</option>
+				<option value="Hello World!!">Hello World!!</option>
+				<option selected value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="Hello World!!">Hello World!!</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		<button id="check" >check</button>
+		<h3>Result</h3>
+		<div class="result"></div>
+	</body>
+</html>
+<script>
+	$(document).ready(function(){
+		var customSelect = ".custom-select"; // class for find original selectbox to make it custom
+		var selectContainer = ".select-container"; // option list container of selectbox
+		var selectClick = ".select-click"; // custom selectbox click
+		var optionClick = ".option-click"; // click on particular custom option
+		var customSelectOuter = ".select-box"; // out most div of custom selectbox
+		
+		// creation of custom selectbox by using ".custom-select" class
+		$(customSelect).each(function(){
+			var _this = this;
+			var selectedValue;
+			var maxLength = 0;
+			var maxText;
+			var outerDiv = "<div class='select-container hide'></div>"
+			//console.log(_this.id);
+			
+			$(_this).wrap("<div class='select-box' id='select_"+this.id+"' data-id='"+ this.id +"'></div>");
+			$(_this).parent().append(outerDiv);
+			selectedValue = $(_this).find("option:first-child").text();
+			$(_this).find("option").each(function(){
+				
+				if($(this).val().length > maxLength){
+					maxText = $(this).val();
+					maxLength = $(this).val().length;
+					console.log(maxLength);
+				}
+				
+				if($(this).attr("selected")){
+					$(_this).parent().find(selectContainer).append("<div class='option-click selected' data-value='"+ this.value +"' selected>"+ this.value +"</div>");
+					selectedValue = this.value;
+				}else{
+					$(_this).parent().find(selectContainer).append("<div class='option-click' title='"+ this.value +"' data-value='"+ this.value +"'>"+ this.value +"</div>");
+				}
+			});
+			
+			$(_this).parent().prepend(function(){
+				var newWidth = $(this).prepend("<div class='select-click'>"+ maxText +"</div>").width();
+				$(this).find(selectClick).text(selectedValue).width(newWidth).attr("title",selectedValue);
+			});
+		});
+		
+		// custom selectbox  click
+		$(document).on("click", selectClick, function(){
+			$(selectContainer).hide();
+			$(selectClick).removeClass("open");
+			$(this).parent().find(selectContainer).show();
+			$(this).parent().find(selectClick).addClass("open");
+		});
+		
+		// custom option click
+		$(document).on("click", optionClick, function(){
+			var dataValue = $(this).attr("data-value");
+			var dataSelector = $(this).closest(customSelectOuter).attr("data-id");
+			//console.log("data value :" + dataValue + "data selector :" + dataSelector )
+			$(".select-container").hide();
+			$(this).parent().find(optionClick).removeClass("selected");
+			$(this).addClass("selected")
+			$(selectClick).removeClass("open");
+			$("#"+dataSelector+" option").removeAttr("selected");
+			// changing values in origional selectbox
+			$("#"+dataSelector+" option").each(function(){
+				if($(this).attr("value") == dataValue){
+					//console.log($(this).attr("value"));
+					//console.log(this);
+					$(this).attr("selected","selected");
+					// put value and title in custom selectbox
+					$("#select_"+dataSelector).find(selectClick).text(dataValue).attr("title",dataValue);;
+				}
+			})
+			
+		});
+		
+		// click outside document for hide selectbox container
+		$(document).on("click", function(e){
+			if(!$(e.target).closest(".select-click, .select-container").length){
+				$(selectContainer).hide();
+				$(selectClick).removeClass("open");
+			}
+		});
+		
+		$("#check").on("click", function(){
+		var result = [],i =0;;
+			$("select").each(function(){
+				result[i] = $(this).val()+"</br>";
+				i++;
+			});
+			$(".result").html(result);
+		});
+	});
+</script>

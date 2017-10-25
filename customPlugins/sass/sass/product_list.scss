@@ -1,0 +1,59 @@
+.prd-blk{
+	position:relative;
+	width:100%;
+	margin-bottom: 20px;
+	border:1px solid $ccc_grey;
+	display:inline-block;
+	text-align:center;
+	.badge{
+		width:60px;
+		height:30px;
+		line-height:30px;
+		position:absolute;
+		top:0;
+		color:$white;
+		padding:0;
+		&.badge-new{
+			background:$star_color;
+		}
+		&.badge-off{
+			background:$product_title;
+		}
+	}
+	img{
+		width:100%;
+	}
+	div{
+		padding: 0 0 5px;
+		line-height: 1.125rem;
+	}
+	.cat-title{
+		font-size:115%;
+		color:$product_title;
+	}
+	.prd-title{
+		font-size:85%;
+		color:$product_title;
+	}
+	.prd-prc{
+		font-weight:600;
+		span{
+			margin: 0 3px;
+		}
+		.old{
+			position:relative;
+			color:$old_price;
+			&:before{
+				border-bottom:1px solid;
+				content: "  ";
+				width:100%;
+				top:46%;
+				position:absolute;
+				
+			}
+		}
+	}
+	.rating{
+		color:$star_color;
+	}
+}

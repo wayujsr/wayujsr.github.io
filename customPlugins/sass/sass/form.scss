@@ -1,0 +1,31 @@
+.form-field{
+	padding:0 0 10px;
+	label{
+		display:block;
+		padding: 2px 5px 0;
+	}
+	input[type="text"],select{
+		clear:both;
+		padding: 8px;
+		height:34px;
+		width:100%;
+		border: 1px solid $ccc_grey;
+		color:$primary_color;
+		@include border-radius(5px);
+		transition:all .5s;
+		&:focus{
+			box-shadow:inset 1px 1px 5px #7eb8ff;
+			outline:none;
+			border-color:#b2daff;
+		}
+	}
+	.error ~ .fa  {
+		display:block;
+	}
+	.valid ~ .fa {
+		display:block;
+		&:before{
+			content: "\f00c";
+		}
+	}
+}
